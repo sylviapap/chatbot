@@ -1,8 +1,8 @@
 body { 
-	color: #421; font-weight: bold; font-size: 18px; background: rgb(156, 223, 243); background-image: url("bot.png"); background-repeat: repeat-y; 
+	color: #421; font-weight: bold; font-size: 18px; font-family: "Courier New"; background: rgb(200, 232, 241); background-image: url("bot.png"); background-repeat: repeat-y; 
 }
 span { 
-	color: #711; 
+	color: rgb(36, 17, 119); 
 } 
 ::-webkit-input-placeholder { 
 	color: #711 
