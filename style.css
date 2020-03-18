@@ -1,0 +1,19 @@
+body { 
+	color: #421; font-weight: bold; font-size: 18px; background: rgb(156, 223, 243); background-image: url("bot.png"); background-repeat: repeat-y; 
+}
+span { 
+	color: #711; 
+} 
+::-webkit-input-placeholder { 
+	color: #711 
+}
+#main { 
+	position: fixed; top: 40%; right: 60px; width: 400px; 
+	border: 0px solid #421; padding: 40px; 
+}
+#main div { 
+	margin: 10px; 
+} 
+#input { 
+	border: 0; background: rgb(235, 234, 221); padding: 5px; border: 1px solid #421; 
+}
