@@ -60,7 +60,8 @@ const alternative = [
   "Try again",
   "I'm listening..."
 ];
-const banana = ["Haha...banana", "I like bananas too"];
+
+const robot = ["How do you do, fellow human", "I am not a bot"];
 
 document.addEventListener("DOMContentLoaded", () => {
 	const inputField = document.getElementById("input")
@@ -91,8 +92,8 @@ function output(input) {
   //compare function, then search keyword, then random alternative
   if (compare(trigger, reply, text)) {
     product = compare(trigger, reply, text);
-  } else if (text.match(/banana/gi)) {
-    product = banana[Math.floor(Math.random() * banana.length)];
+  } else if (text.match(/robot/gi)) {
+    product = robot[Math.floor(Math.random() * robot.length)];
   } else {
     product = alternative[Math.floor(Math.random() * alternative.length)];
   }
