@@ -46,16 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		const key = e.which || e.keyCode;
 		//Enter button
 		if (key === 13) {
+			const mainDiv = document.getElementById("main")
 			let input = document.getElementById("input").value;
-			document.getElementById("user").innerHTML = input;
+			let userDiv = document.createElement("div")
+			userDiv.id = "user"
+			userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
 			output(input);
+			mainDiv.appendChild(userDiv);
+			document.getElementById("input").value = "";
 		}
 	});
 }
 )
 
 function output(input) {
-	// create local variable. can't do inside 'if' statement i guess?
 	let product;
 
 	//lowercase input and remove all chars except word characters, space, and digits
@@ -77,7 +81,7 @@ function output(input) {
 	}
 
 	//update DOM
-	addChat(product, input);
+	addChat(product);
 }
 
 function compare(triggerArray, replyArray, string) {
@@ -93,11 +97,16 @@ function compare(triggerArray, replyArray, string) {
 	return item;
 }
 
-function addChat(product, input) {
+//<div id="bot">Chatbot: <span id="bot-response"></span></div>
+
+function addChat(botText) {
 	
-	document.getElementById("chatbot").innerHTML = product;
-	speak(product);
-	document.getElementById("input").value = "";
+	const mainDiv = document.getElementById("main")
+	let botDiv = document.createElement("div")
+	botDiv.id = "bot"
+	botDiv.innerHTML = `Chatbot: <span id="bot-response">${botText}</span>`;
+	mainDiv.append(botDiv);
+	speak(botText);
 }
 
 function speak(string) {
