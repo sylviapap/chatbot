@@ -77,11 +77,7 @@ function output(input) {
 	}
 
 	//update DOM
-	document.getElementById("chatbot").innerHTML = product;
-	speak(product);
-
-	//clear input value
-	document.getElementById("input").value = "";
+	addChat(product, input);
 }
 
 function compare(triggerArray, replyArray, string) {
@@ -95,6 +91,13 @@ function compare(triggerArray, replyArray, string) {
 		}
 	}
 	return item;
+}
+
+function addChat(product, input) {
+	
+	document.getElementById("chatbot").innerHTML = product;
+	speak(product);
+	document.getElementById("input").value = "";
 }
 
 function speak(string) {
