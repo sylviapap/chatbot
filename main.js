@@ -46,13 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		const key = e.which || e.keyCode;
 		//Enter button
 		if (key === 13) {
-			const mainDiv = document.getElementById("main")
 			let input = document.getElementById("input").value;
-			let userDiv = document.createElement("div")
-			userDiv.id = "user"
-			userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
+			// let userDiv = document.createElement("div")
+			// userDiv.id = "user"
+			// userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
 			output(input);
-			mainDiv.appendChild(userDiv);
+			// mainDiv.appendChild(userDiv);
 			document.getElementById("input").value = "";
 		}
 	});
@@ -81,7 +80,7 @@ function output(input) {
 	}
 
 	//update DOM
-	addChat(product);
+	addChat(input, product);
 }
 
 function compare(triggerArray, replyArray, string) {
@@ -99,14 +98,18 @@ function compare(triggerArray, replyArray, string) {
 
 //<div id="bot">Chatbot: <span id="bot-response"></span></div>
 
-function addChat(botText) {
-	
+function addChat(input, product) {
 	const mainDiv = document.getElementById("main")
+	let userDiv = document.createElement("div")
+	userDiv.id = "user"
+	userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
+	mainDiv.appendChild(userDiv);
+
 	let botDiv = document.createElement("div")
 	botDiv.id = "bot"
-	botDiv.innerHTML = `Chatbot: <span id="bot-response">${botText}</span>`;
-	mainDiv.append(botDiv);
-	speak(botText);
+	botDiv.innerHTML = `Chatbot: <span id="bot-response">${product}</span>`;
+	mainDiv.appendChild(botDiv);
+	speak(product);
 }
 
 function speak(string) {
