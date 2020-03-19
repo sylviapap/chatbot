@@ -63,17 +63,12 @@ const alternative = [
 const banana = ["Haha...banana", "I like bananas too"];
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#input").addEventListener("keypress", function(e) {
-    const key = e.which || e.keyCode;
-    //Enter button
-    if (key === 13) {
-      let input = document.getElementById("input").value;
-      // let userDiv = document.createElement("div")
-      // userDiv.id = "user"
-      // userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
-      output(input);
-      // mainDiv.appendChild(userDiv);
-      document.getElementById("input").value = "";
+	const inputField = document.getElementById("input")
+	inputField.addEventListener("keydown", function(e) {
+		if (e.code === "Enter") {
+			let input = inputField.value;
+			inputField.value = "";
+			output(input);
     }
   });
 });
