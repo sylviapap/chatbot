@@ -1,6 +1,24 @@
 body { 
-	color: #421; font-weight: bold; font-size: 18px; font-family: "Courier New"; background: rgb(200, 232, 241); background-image: url("bot.png"); background-repeat: repeat-y; 
+	color: #421; 
+	font-weight: bold; 
+	font-size: 18px; 
+	font-family: "Courier New"; 
+	background: rgb(201, 229, 236); 
 }
+
+body::after {
+	content: "";
+	background-image: url("bot.png");
+	background-repeat: repeat-y; 
+	opacity: 0.5;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
+  }
+
 span { 
 	color: rgb(36, 17, 119); 
 } 
@@ -8,12 +26,18 @@ span {
 	color: #711 
 }
 #main { 
-	position: fixed; top: 40%; right: 200px; width: 400px; 
-	border: 0px solid #421; padding: 40px; 
+	position: fixed; 
+	top: 40%; 
+	right: 200px; 
+	width: 400px; 
+	border: 0px solid #421; 
+	padding: 40px; 
 }
 #main div { 
 	margin: 10px; 
 } 
 #input { 
-	border: 0; background: rgb(235, 234, 221); padding: 5px; border: 1px solid #421; 
+	border: 0; 
+	padding: 5px; 
+	border: 1px solid #421; 
 }

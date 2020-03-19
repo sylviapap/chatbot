@@ -1,7 +1,7 @@
 const trigger = [
   ["hi", "hey", "hello", "good morning", "good afternoon"],
   ["how are you", "how is life", "how are things"],
-  ["what are you doing", "what is going on"],
+  ["what are you doing", "what is going on", "what is up"],
   ["how old are you"],
   ["who are you", "are you human", "are you bot", "are you human or bot"],
   ["who created you", "who made you"],
