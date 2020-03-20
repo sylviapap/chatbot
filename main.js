@@ -61,7 +61,7 @@ const alternative = [
   "I'm listening..."
 ];
 
-const robot = ["How do you do, fellow human", "I am not a bot"];
+const coronavirus = ["Please stay home"];
 
 document.addEventListener("DOMContentLoaded", () => {
 	const inputField = document.getElementById("input")
@@ -92,8 +92,8 @@ function output(input) {
   //compare function, then search keyword, then random alternative
   if (compare(trigger, reply, text)) {
     product = compare(trigger, reply, text);
-  } else if (text.match(/robot/gi)) {
-    product = robot[Math.floor(Math.random() * robot.length)];
+  } else if (text.match(/coronavirus/gi)) {
+    product = coronavirus[Math.floor(Math.random() * coronavirus.length)];
   } else {
     product = alternative[Math.floor(Math.random() * alternative.length)];
   }
@@ -129,14 +129,16 @@ function addChat(input, product) {
   speak(product);
 }
 
+const synth = window.speechSynthesis;
+let voices = synth.getVoices();
+
 function speak(string) {
-  const u = new SpeechSynthesisUtterance();
-  allVoices = speechSynthesis.getVoices();
-  u.voice = allVoices.filter(voice => voice.name === "Alex")[0];
+  let u = new SpeechSynthesisUtterance(string);
   u.text = string;
   u.lang = "en-US";
   u.volume = 1; //0-1 interval
   u.rate = 1;
   u.pitch = 1; //0-2 interval
-  speechSynthesis.speak(u);
+  synth.speak(u);
+  debugger
 }
