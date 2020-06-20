@@ -1,3 +1,5 @@
+// These are words/phrases the user could type in
+
 const trigger = [
   ["hi", "hey", "hello", "good morning", "good afternoon"],
   ["how are you", "how is life", "how are things"],
@@ -23,6 +25,8 @@ const trigger = [
   ["bro"],
   ["what", "why", "how", "where", "when"]
 ];
+
+// These are bot responses, paired in order with the above 'trigger' phrases
 
 const reply = [
   ["Hello!", "Hi!", "Hey!", "Hi there!"],
@@ -53,6 +57,8 @@ const reply = [
   ["Yes?"]
 ];
 
+// This is a small set of basically random 'catch alls' for anything that the user enters outside of the possible trigger phrases
+
 const alternative = [
   "Same",
   "Go on...",
@@ -60,6 +66,8 @@ const alternative = [
   "Try again",
   "I'm listening..."
 ];
+
+// Same purpose as the 'alternative' but an attempt at being culturally relevant ;)
 
 const coronavirus = ["Please stay home"];
 
@@ -77,11 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function output(input) {
   let product;
 
-  //lowercase input and remove all chars except word characters, space, and digits
+  //Transforms whatever the user inputs to lowercase and remove all chars except word characters, space, and digits
   let text = input.toLowerCase().replace(/[^\w\s\d]/gi, "");
 
-  // 'tell me a story' -> 'tell me story'
-  // 'i feel happy' -> 'happy'
+  // For example 'tell me a story' becomes 'tell me story'
+  // Or 'i feel happy' -> 'happy'
   text = text
     .replace(/ a /g, " ")
     .replace(/i feel /g, "")
@@ -89,7 +97,7 @@ function output(input) {
     .replace(/please /g, "")
     .replace(/ please/g, "");
 
-  //compare function, then search keyword, then random alternative
+  // Searches for an exact match with the 'trigger' array, if there are none, it goes will check if message contains 'coronavirus,' and if not - random alternative
   if (compare(trigger, reply, text)) {
     product = compare(trigger, reply, text);
   } else if (text.match(/coronavirus/gi)) {
