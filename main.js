@@ -72,12 +72,12 @@ const alternative = [
 const coronavirus = ["Please stay home"];
 
 document.addEventListener("DOMContentLoaded", () => {
-	const inputField = document.getElementById("input")
-	inputField.addEventListener("keydown", function(e) {
-		if (e.code === "Enter") {
-			let input = inputField.value;
-			inputField.value = "";
-			output(input);
+  const inputField = document.getElementById("input");
+  inputField.addEventListener("keydown", (e) => {
+    if (e.code === "Enter") {
+      let input = inputField.value;
+      inputField.value = "";
+      output(input);
     }
   });
 });
@@ -111,16 +111,24 @@ function output(input) {
 }
 
 function compare(triggerArray, replyArray, string) {
-  let item;
+  let reply;
+  let replyFound = false;
   for (let x = 0; x < triggerArray.length; x++) {
-    for (let y = 0; y < replyArray.length; y++) {
-      if (triggerArray[x][y] == string) {
-        items = replyArray[x];
-        item = items[Math.floor(Math.random() * items.length)];
+    for (let y = 0; y < triggerArray[x].length; y++) {
+      if (triggerArray[x][y] === string) {
+        let replies = replyArray[x];
+        reply = replies[Math.floor(Math.random() * replies.length)];
+        replyFound = true;
+        // stop inner loop when input value matches trigger
+        break;
       }
     }
+    if (replyFound) {
+      // stop outer loop when reply is found instead of interating through the entire array
+      break;
+    }
   }
-  return item;
+  return reply;
 }
 
 function addChat(input, product) {
@@ -138,15 +146,15 @@ function addChat(input, product) {
 }
 
 const synth = window.speechSynthesis;
-let voices = synth.getVoices();
+//let voices = synth.getVoices();
 
 function speak(string) {
-  let u = new SpeechSynthesisUtterance(string);
-  u.text = string;
-  u.lang = "en-US";
-  u.volume = 1; //0-1 interval
-  u.rate = 1;
-  u.pitch = 1; //0-2 interval
-  synth.speak(u);
-  debugger
+  let voice = new SpeechSynthesisUtterance(string);
+  voice.text = string;
+  voice.lang = "en-US";
+  voice.volume = 1; //0-1 interval
+  voice.rate = 1;
+  voice.pitch = 1; //0-2 interval
+  synth.speak(voice);
+  debugger;
 }
