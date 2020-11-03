@@ -8,6 +8,8 @@ It is a good exercise for anyone interested in chatbots, JavaScript fundamentals
 
 Enjoy!
 
+[View Demo](https://sylviapap.github.io/chatbot/)
+
 I also wrote a blog post detailing this here:
 
 https://dev.to/sylviapap/make-a-simple-chatbot-with-javascript-1gc
