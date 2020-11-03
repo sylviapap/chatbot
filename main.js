@@ -132,21 +132,20 @@ function compare(triggerArray, replyArray, string) {
 }
 
 function addChat(input, product) {
-  const mainDiv = document.getElementById("main");
+  const chatContainer = document.getElementById("conversation");
   let userDiv = document.createElement("div");
   userDiv.id = "user";
-  userDiv.innerHTML = `You: <span id="user-response">${input}</span>`;
-  mainDiv.appendChild(userDiv);
+  userDiv.innerHTML = `<p>You:</p> <span class="user response">${input}</span>`;
+  chatContainer.appendChild(userDiv);
 
   let botDiv = document.createElement("div");
   botDiv.id = "bot";
-  botDiv.innerHTML = `Chatbot: <span id="bot-response">${product}</span>`;
-  mainDiv.appendChild(botDiv);
+  botDiv.innerHTML = `<p>Bot:</p> <span class="bot response">${product}</span>`;
+  chatContainer.appendChild(botDiv);
   speak(product);
 }
 
 const synth = window.speechSynthesis;
-//let voices = synth.getVoices();
 
 function speak(string) {
   let voice = new SpeechSynthesisUtterance(string);
@@ -156,5 +155,4 @@ function speak(string) {
   voice.rate = 1;
   voice.pitch = 1; //0-2 interval
   synth.speak(voice);
-  debugger;
 }
