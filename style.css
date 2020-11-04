@@ -18,6 +18,10 @@ body {
 	margin: 0;
 }
 
+span {
+	padding: 15px;
+}
+
 .container {
 	display: flex;
   justify-content: center;
@@ -27,16 +31,12 @@ body {
 }
 
 .chat {
-	height: 50vh;
+	height: 300px;
 	width: 50vw;
 	display: flex;
 	flex-direction: column;
   justify-content: center;
 	align-items: center;
-}
-
-span { 
-	color: rgb(36, 17, 119); 
 } 
 
 ::-webkit-input-placeholder { 
@@ -62,17 +62,19 @@ input {
 	border-radius: 10px;
 }
 
-p {
-	font-variant: all-small-caps;
-}
-
 #bot {
 	margin-left: auto;
 }
 
-.bot-response {
+.bot {
 	font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
 	monospace;
+}
+
+.response {
+	display: flex;
+	align-items: center;
+	margin: 1%;
 }
 
 
@@ -84,7 +86,7 @@ p {
 		justify-content: flex-start;
 	}
 	.chat {
-		height: 20vh;
 		width: 75vw;
+		margin: 10vw;
 	}
 }
