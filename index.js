@@ -132,16 +132,16 @@ function compare(triggerArray, replyArray, string) {
 }
 
 function addChat(input, product) {
-  const chatContainer = document.getElementById("conversation");
+  const messagesContainer = document.getElementById("messages");
   let userDiv = document.createElement("div");
   userDiv.id = "user";
   userDiv.innerHTML = `<p>You:</p> <span class="user response">${input}</span>`;
-  chatContainer.appendChild(userDiv);
+  messagesContainer.appendChild(userDiv);
 
   let botDiv = document.createElement("div");
   botDiv.id = "bot";
   botDiv.innerHTML = `<p>Bot:</p> <span class="bot response">${product}</span>`;
-  chatContainer.appendChild(botDiv);
+  messagesContainer.appendChild(botDiv);
   speak(product);
 }
 
