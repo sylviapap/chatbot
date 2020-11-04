@@ -12,28 +12,27 @@ document.addEventListener("DOMContentLoaded", () => {
 function output(input) {
   let product;
 
-  //Transforms whatever the user inputs to lowercase and remove all chars except word characters, space, and digits
+  // Remove chars except letters, space, & digits
   let text = input.toLowerCase().replace(/[^\w\s\d]/gi, "");
-
-  // For example 'tell me a story' becomes 'tell me story'
-  // Or 'i feel happy' -> 'happy'
   text = text
-    .replace(/ a /g, " ")
+    .replace(/ a /g, " ")   // 'tell me a story' -> 'tell me story'
     .replace(/i feel /g, "")
     .replace(/whats/g, "what is")
     .replace(/please /g, "")
     .replace(/ please/g, "");
 
-  // Searches for an exact match with the 'prompts' array, if there are none, it goes will check if message contains 'coronavirus,' and if not - random alternative
-  if (compare(prompts, replies, text)) {
+  if (compare(prompts, replies, text)) { 
+    // Search for exact match in `prompts`
     product = compare(prompts, replies, text);
   } else if (text.match(/coronavirus/gi)) {
+    // If no match, check if message contains `coronavirus`
     product = coronavirus[Math.floor(Math.random() * coronavirus.length)];
   } else {
+    // If all else fails: random alternative
     product = alternative[Math.floor(Math.random() * alternative.length)];
   }
 
-  //update DOM
+  // Update DOM
   addChat(input, product);
 }
 
@@ -46,12 +45,12 @@ function compare(promptsArray, repliesArray, string) {
         let replies = repliesArray[x];
         reply = replies[Math.floor(Math.random() * replies.length)];
         replyFound = true;
-        // stop inner loop when input value matches prompts
+        // Stop inner loop when input value matches prompts
         break;
       }
     }
     if (replyFound) {
-      // stop outer loop when reply is found instead of interating through the entire array
+      // Stop outer loop when reply is found instead of interating through the entire array
       break;
     }
   }
@@ -69,17 +68,5 @@ function addChat(input, product) {
   botDiv.id = "bot";
   botDiv.innerHTML = `<p>Bot:</p> <span class="bot response">${product}</span>`;
   messagesContainer.appendChild(botDiv);
-  speak(product);
-}
-
-const synth = window.speechSynthesis;
-
-function speak(string) {
-  let voice = new SpeechSynthesisUtterance(string);
-  voice.text = string;
-  voice.lang = "en-US";
-  voice.volume = 1; //0-1 interval
-  voice.rate = 1;
-  voice.pitch = 1; //0-2 interval
-  synth.speak(voice);
+  textToSpeech(product);
 }
