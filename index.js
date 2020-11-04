@@ -71,6 +71,8 @@ function addChat(input, product) {
   botDiv.className = "bot response";
   botDiv.innerHTML = `<span>${product}</span><img src="bot-mini.png" height="30px">`;
   messagesContainer.appendChild(botDiv);
-  botDiv.focus();
+
+  messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+  
   textToSpeech(product);
 }
