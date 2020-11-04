@@ -72,6 +72,7 @@ function addChat(input, product) {
   botDiv.innerHTML = `<span>${product}</span><img src="bot-mini.png" height="30px">`;
   messagesContainer.appendChild(botDiv);
 
+  // Keep messages at most recent
   messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
   
   textToSpeech(product);
