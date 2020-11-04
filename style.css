@@ -19,7 +19,8 @@ body {
 }
 
 span {
-	padding: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .container {
@@ -69,6 +70,10 @@ input {
 .bot {
 	font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
 	monospace;
+}
+
+.avatar {
+	height: 25px;
 }
 
 .response {
