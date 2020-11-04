@@ -61,12 +61,12 @@ function addChat(input, product) {
   const messagesContainer = document.getElementById("messages");
   let userDiv = document.createElement("div");
   userDiv.id = "user";
-  userDiv.innerHTML = `<p>You:</p> <span class="user response">${input}</span>`;
+  userDiv.innerHTML = `<p>You:</p> <span class="user-response">${input}</span>`;
   messagesContainer.appendChild(userDiv);
 
   let botDiv = document.createElement("div");
   botDiv.id = "bot";
-  botDiv.innerHTML = `<p>Bot:</p> <span class="bot response">${product}</span>`;
+  botDiv.innerHTML = `<p>Bot:</p> <span class="bot-response">${product}</span>`;
   messagesContainer.appendChild(botDiv);
   textToSpeech(product);
 }

@@ -18,7 +18,7 @@ body {
 	margin: 0;
 }
 
-#container {
+.container {
 	display: flex;
   justify-content: center;
 	align-items: center;
@@ -26,10 +26,9 @@ body {
 	height: 100%;
 }
 
-#chat {
-	margin: auto;
-	height: 100%;
-	width: 25%;
+.chat {
+	height: 50vh;
+	width: 50vw;
 	display: flex;
 	flex-direction: column;
   justify-content: center;
@@ -41,17 +40,17 @@ span {
 } 
 
 ::-webkit-input-placeholder { 
-	color: #711 
+	color: .711 
 }
  
-#input { 
+input { 
 	border: 0; 
 	padding: 15px; 
-	margin: 15px;
+	margin-left: auto;
 	border-radius: 10px; 
 }
 
-#messages {
+.messages {
 	display: flex;
 	flex-direction: column;
 	overflow: scroll;
@@ -71,7 +70,21 @@ p {
 	margin-left: auto;
 }
 
-.bot {
+.bot-response {
 	font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
 	monospace;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 980px) {
+  .container {
+		flex-direction: column; 
+		justify-content: flex-start;
+	}
+	.chat {
+		height: 20vh;
+		width: 75vw;
+	}
 }
